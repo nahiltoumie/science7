@@ -173,6 +173,21 @@ textarea{resize:vertical;min-height:3.2rem;line-height:1.6}
 .tx-cell.wrong::after{content:'✗';color:var(--bad);font-weight:800;padding:0 .2rem}
 .tblx-msg{margin:.5rem 0 0;font-weight:700} .tblx-msg.good{color:var(--ok)}
 
+/* تجارب العلامات وبطاقات قبل/بعد */
+.labs{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));margin:.6rem 0}
+.lab-card{border:1px solid var(--line);border-inline-start:5px solid #e67700;border-radius:12px;padding:.6rem .75rem;background:#fffaf3}
+.lab-card p{margin:.3rem 0} .lab-sign{font-weight:800;font-size:1.05rem;margin-bottom:.2rem}
+.lab-safe{font-size:.85rem;color:#a6400a}
+.ba-grid{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr));margin:.5rem 0 1rem}
+figure.ba-card{margin:0;border:1px solid var(--line);border-radius:14px;padding:.55rem .6rem;background:#fff;text-align:start}
+.ba-card.chem{border-top:5px solid #e67700} .ba-card.phys{border-top:5px solid #1971c2}
+.ba-head{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin-bottom:.3rem}
+.ba-tag{font-size:.8rem;font-weight:800;border-radius:999px;padding:.1rem .6rem;white-space:nowrap}
+.ba-card.chem .ba-tag{background:#fff4e6;color:#c2410c} .ba-card.phys .ba-tag{background:#e7f5ff;color:#1864ab}
+.ba-card svg{width:100%;height:auto;display:block}
+figcaption.ba-why{font-size:.92rem;color:var(--ink,#1f2a3d);margin-top:.3rem;text-align:start}
+h4.ba-group{margin:.8rem 0 .2rem} h4.ba-group.chem{color:#c2410c} h4.ba-group.phys{color:#1864ab}
+
 </style>
 </head>
 <body>
@@ -388,8 +403,30 @@ const LEGACY_UNITS = [
     body:`<p>تتغيّر المواد من حولنا باستمرار، وهذه التغيّرات نوعان:</p>
     <ul><li><b>التغيّر الفيزيائي:</b> يتغيّر شكل المادة أو حجمها أو حالتها، <b>دون أن تتكوّن مادة جديدة</b>. أمثلة: قصّ الورق، انصهار الثلج، ذوبان السكر في الماء، كسر الزجاج.</li>
     <li><b>التغيّر الكيميائي:</b> <b>تتكوّن مادة جديدة</b> لها خصائص مختلفة عن المواد الأصلية. أمثلة: احتراق الخشب، صدأ الحديد، طهي البيض، تخمّر العجين، تعفّن الفاكهة.</li></ul>
-    <h3>علامات تدلّ على حدوث تغيّر كيميائي</h3>
-    <ul><li>تغيّر اللون (مثل اسوداد الخبز المحروق).</li><li>تصاعد غاز أو فقاعات (عند تفاعل مادتين).</li><li>انطلاق حرارة أو ضوء (الاحتراق).</li><li>تكوّن راسب صلب في سائل.</li><li>ظهور رائحة جديدة.</li></ul>
+    <h3>علامات تدلّ على حدوث تغيّر كيميائي — وتجربة مختبر لكل علامة</h3>
+    <p class="small muted">🥽 تُجرى هذه التجارب في مختبر المدرسة <b>بإشراف المعلّم فقط</b>، مع نظارات واقية. لا نتذوّق ولا نشمّ مباشرة؛ نحرّك الهواء بيدنا نحو الأنف.</p>
+    <div class="labs">
+    <div class="lab-card"><div class="lab-sign">🎨 تغيّر اللون <span class="muted small">(مثل اسوداد الخبز المحروق)</span></div>
+     <p><b>نفعل:</b> نضع مسمارًا حديديًا نظيفًا في أنبوب اختبار فيه محلول <b>كبريتات النحاس</b> الأزرق، وننتظر بضع دقائق.</p>
+     <p><b>نلاحظ:</b> يتغطّى المسمار بطبقة <b>بنية مائلة إلى الأحمر</b>، ويبهت اللون الأزرق للمحلول تدريجيًا.</p>
+     <p class="lab-safe">⚠️ كبريتات النحاس مهيّجة: قفازات ونظارات، ولا نلمسها باليد.</p></div>
+    <div class="lab-card"><div class="lab-sign">🫧 تصاعد غاز أو فقاعات</div>
+     <p><b>نفعل:</b> نسكب قليلًا من <b>الخلّ</b> في قارورة، ونضيف ملعقة صغيرة من <b>صودا الخَبز</b> (بيكربونات الصوديوم). ويمكن أن نثبّت بالونًا على فوهة القارورة.</p>
+     <p><b>نلاحظ:</b> <b>فوران وفقاعات</b> كثيرة، وينتفخ البالون بغاز جديد هو <b>ثاني أكسيد الكربون</b>.</p>
+     <p class="lab-safe">⚠️ لا نقرّب الوجه من القارورة أثناء الفوران.</p></div>
+    <div class="lab-card"><div class="lab-sign">🔥 انطلاق حرارة أو ضوء (الاحتراق)</div>
+     <p><b>نفعل:</b> يمسك المعلّم قطعة صغيرة من <b>صوف الفولاذ</b> (سلك الجلي المعدني) بملقط فوق صينية معدنية، ويقرّبها من لهب.</p>
+     <p><b>نلاحظ:</b> <b>توهّج وشرر</b> (ضوء وحرارة)، وتتحوّل الأسلاك الرمادية اللامعة إلى مادة <b>داكنة هشّة</b> تتفتّت، أي مادة جديدة. ومثلها احتراق الشمعة أو عود الثقاب.</p>
+     <p class="lab-safe">⚠️ عرض يقوم به المعلّم فقط، بعيدًا عن المواد القابلة للاشتعال.</p></div>
+    <div class="lab-card"><div class="lab-sign">⚪ تكوّن راسب صلب في سائل</div>
+     <p><b>نفعل:</b> نصبّ <b>ماء الجير</b> الصافي في أنبوب اختبار، ثم <b>ننفخ</b> فيه برفق عبر ماصّة (الهواء الخارج من رئتينا فيه ثاني أكسيد الكربون).</p>
+     <p><b>نلاحظ:</b> يتعكّر السائل ويصبح <b>حليبيًا</b>، ومع الوقت تترسّب مادة <b>بيضاء صلبة</b> في القاع (راسب).</p>
+     <p class="lab-safe">⚠️ ننفخ فقط ولا نشفط، فماء الجير يضرّ الفم والعينين.</p></div>
+    <div class="lab-card"><div class="lab-sign">👃 ظهور رائحة جديدة</div>
+     <p><b>نفعل:</b> يسخّن المعلّم قليلًا من <b>السكر</b> في ملعقة معدنية أو أنبوب اختبار على اللهب.</p>
+     <p><b>نلاحظ:</b> ينصهر السكر، ثم يصفرّ ويسمرّ وتظهر <b>رائحة كراميل</b> ثم رائحة احتراق، ويبقى في النهاية مادة <b>سوداء</b> ليست حلوة ولا تذوب كالسكر.</p>
+     <p class="lab-safe">⚠️ السكر المنصهر حارّ جدًا ويلتصق بالجلد: عرض من المعلّم مع ممسك.</p></div>
+    </div>
     <p>⚠️ انتبه: بعض هذه العلامات قد تحدث في تغيّر فيزيائي أيضًا، فالعبرة هي: <b>هل تكوّنت مادة جديدة؟</b></p>`,
     example:'عند خلط الخلّ مع بيكربونات الصوديوم (صودا الخَبز) تتصاعد فقاعات كثيرة من غاز ثاني أكسيد الكربون؛ هذا تغيّر كيميائي لأن مادة جديدة (غاز) تكوّنت.',
     terms:[['التغيّر الفيزيائي','تغيّر في الشكل أو الحالة دون تكوّن مادة جديدة.'],['التغيّر الكيميائي','تغيّر تتكوّن فيه مادة جديدة بخصائص جديدة.'],['الصدأ','مادة جديدة تتكوّن من تفاعل الحديد مع الأكسجين والماء.'],['الراسب','مادة صلبة تتكوّن داخل سائل نتيجة تفاعل.']],
@@ -1375,6 +1412,58 @@ NEW_LESSONS.push(
   challenge:['mc','كيس قماش يُستعمل مئات المرات، وكيس بلاستيك يُستعمل مرة واحدة. لماذا قد يكون كيس القماش أفضل للبيئة رغم أن صنعه يحتاج طاقة أكثر؟',['لأن أثره البيئي يتوزّع على مرات استعمال كثيرة فيصبح أقل في كل مرة','لأن القماش لا يحتاج إلى أي طاقة لصنعه','لأن البلاستيك يتفكّك بسرعة','لا فرق بينهما إطلاقًا'],0,'عند تقييم المنتج ننظر إلى دورة حياته كلها وعدد مرات استعماله.']
 });
 /* ---------- تعميق دروس قائمة ---------- */
+/* بطاقات «قبل / بعد» للتغيّرات الكيميائية والفيزيائية (رسوم SVG داخلية) */
+function BA_CARDS(){
+  const T='font-family="inherit" direction="rtl" text-anchor="middle"';
+  const beaker=(inner)=>`${inner}<path d="M35 18 V92 Q35 100 43 100 H87 Q95 100 95 92 V18" fill="none" stroke="#495057" stroke-width="3"/>`;
+  const tube=(inner)=>`${inner}<path d="M48 10 V86 Q48 101 65 101 Q82 101 82 86 V10" fill="none" stroke="#495057" stroke-width="3"/>`;
+  const glass=(inner)=>`${inner}<path d="M30 15 L38 100 H92 L100 15" fill="none" stroke="#495057" stroke-width="3"/>`;
+  const D={
+   bread:`<path d="M20 98 V48 Q16 20 45 22 Q65 4 85 22 Q114 20 110 48 V98 Z" fill="#c8843a"/><path d="M28 92 V50 Q26 30 47 31 Q65 17 83 31 Q104 30 102 50 V92 Z" fill="#f6e2b3"/>`,
+   burnt:`<path d="M20 98 V48 Q16 20 45 22 Q65 4 85 22 Q114 20 110 48 V98 Z" fill="#2b1d14"/><path d="M28 92 V50 Q26 30 47 31 Q65 17 83 31 Q104 30 102 50 V92 Z" fill="#4a3426"/><g fill="none" stroke="#868e96" stroke-width="3" stroke-linecap="round" opacity=".8"><path d="M45 14 q-8 -6 0 -12"/><path d="M65 10 q-8 -6 0 -12"/><path d="M85 14 q-8 -6 0 -12"/></g>`,
+   vinegar:beaker(`<rect x="37" y="58" width="56" height="40" fill="#fff3bf"/><path d="M100 70 h22" stroke="#868e96" stroke-width="3" stroke-linecap="round"/><ellipse cx="117" cy="66" rx="9" ry="5" fill="#fff" stroke="#adb5bd"/>`),
+   fizz:beaker(`<rect x="37" y="58" width="56" height="40" fill="#fff3bf"/><g fill="#fff" stroke="#74c0fc" stroke-width="1.5">${[[45,52,6],[57,47,7],[70,50,6],[83,46,7],[50,36,6],[64,32,7],[78,35,6],[60,18,6],[73,20,5],[48,22,5],[86,26,5],[56,70,3],[72,80,3],[82,66,3],[46,84,3]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}"/>`).join('')}</g>`),
+   candle:`<rect x="52" y="38" width="26" height="62" rx="3" fill="#fff" stroke="#adb5bd" stroke-width="2"/><line x1="65" y1="38" x2="65" y2="28" stroke="#343a40" stroke-width="2.5"/>`,
+   flame:`<circle cx="65" cy="30" r="26" fill="#ffd43b" opacity=".25"/><g stroke="#fab005" stroke-width="2.5" stroke-linecap="round"><line x1="65" y1="0" x2="65" y2="-2"/><line x1="30" y1="22" x2="24" y2="20"/><line x1="100" y1="22" x2="106" y2="20"/><line x1="38" y1="5" x2="34" y2="1"/><line x1="92" y1="5" x2="96" y2="1"/></g><rect x="52" y="52" width="26" height="48" rx="3" fill="#fff" stroke="#adb5bd" stroke-width="2"/><path d="M58 52 q2 6 0 10" stroke="#e9ecef" stroke-width="3" fill="none"/><line x1="65" y1="52" x2="65" y2="44" stroke="#343a40" stroke-width="2.5"/><path d="M65 14 Q76 30 70 42 Q65 48 60 42 Q54 30 65 14Z" fill="#ff922b"/><path d="M65 26 Q70 34 67 40 Q65 43 63 40 Q60 34 65 26Z" fill="#ffe066"/>`,
+   lime:tube(`<path d="M50 40 H80 V86 Q80 99 65 99 Q50 99 50 86Z" fill="#d0ebff"/><line x1="74" y1="2" x2="62" y2="90" stroke="#e64980" stroke-width="4" stroke-linecap="round"/><g fill="#fff" stroke="#74c0fc" stroke-width="1.2"><circle cx="61" cy="80" r="2.5"/><circle cx="64" cy="66" r="3"/><circle cx="60" cy="52" r="2.5"/></g><text x="26" y="66" font-size="11" font-weight="800" fill="#1971c2" ${T}>صافٍ</text>`),
+   milky:tube(`<path d="M50 40 H80 V86 Q80 99 65 99 Q50 99 50 86Z" fill="#ced4da"/><g fill="#fff" opacity=".85"><ellipse cx="60" cy="52" rx="8" ry="6"/><ellipse cx="71" cy="64" rx="8" ry="6"/><ellipse cx="59" cy="74" rx="7" ry="5"/></g><path d="M50 86 Q65 81 80 86 Q80 99 65 99 Q50 99 50 86Z" fill="#fff" stroke="#868e96" stroke-width="1.5"/><g fill="#adb5bd"><circle cx="58" cy="92" r="1.5"/><circle cx="66" cy="94" r="1.5"/><circle cx="73" cy="91" r="1.5"/></g><line x1="74" y1="2" x2="66" y2="60" stroke="#e64980" stroke-width="4" stroke-linecap="round"/><text x="26" y="66" font-size="11" font-weight="800" fill="#495057" ${T}>عكِر</text><path d="M84 92 h14" stroke="#868e96" stroke-width="1.5"/><text x="112" y="88" font-size="10" font-weight="700" fill="#495057" ${T}>راسب</text>`),
+   ice:`<ellipse cx="65" cy="92" rx="52" ry="9" fill="#e9ecef" stroke="#adb5bd" stroke-width="2"/><rect x="42" y="42" width="46" height="46" rx="6" fill="#d0ebff" stroke="#74c0fc" stroke-width="2.5"/><path d="M50 50 l12 0" stroke="#fff" stroke-width="4" stroke-linecap="round"/>`,
+   puddle:`<ellipse cx="65" cy="92" rx="52" ry="9" fill="#e9ecef" stroke="#adb5bd" stroke-width="2"/><ellipse cx="65" cy="90" rx="36" ry="6" fill="#74c0fc" opacity=".8"/><path d="M45 89 h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/>`,
+   sugar:glass(`<path d="M34 45 L38 100 H92 L96 45Z" fill="#e7f5ff"/><g fill="#fff" stroke="#adb5bd" stroke-width="1.5"><rect x="48" y="84" width="14" height="14"/><rect x="64" y="84" width="14" height="14"/><rect x="56" y="70" width="14" height="14"/></g>`),
+   sweet:glass(`<path d="M34 45 L38 100 H92 L96 45Z" fill="#e7f5ff"/><line x1="88" y1="5" x2="62" y2="95" stroke="#868e96" stroke-width="3.5" stroke-linecap="round"/><text x="52" y="66" font-size="13" font-weight="800" fill="#1971c2" ${T}>حلو</text>`),
+   paper:`<rect x="30" y="12" width="70" height="88" rx="3" fill="#fff" stroke="#adb5bd" stroke-width="2"/><g stroke="#ced4da" stroke-width="2">${[30,42,54,66,78].map(y=>`<line x1="40" y1="${y}" x2="90" y2="${y}"/>`).join('')}</g>`,
+   pieces:`<g fill="#fff" stroke="#adb5bd" stroke-width="2"><rect x="14" y="20" width="34" height="40" transform="rotate(-12 31 40)"/><rect x="60" y="14" width="36" height="34" transform="rotate(9 78 31)"/><rect x="24" y="66" width="38" height="30" transform="rotate(6 43 81)"/><rect x="74" y="58" width="34" height="38" transform="rotate(-8 91 77)"/></g><g stroke="#495057" stroke-width="3" fill="none"><circle cx="104" cy="22" r="6"/><circle cx="116" cy="30" r="6"/><line x1="99" y1="30" x2="80" y2="48"/><line x1="110" y1="35" x2="88" y2="44"/></g>`
+  };
+  const svg=(b,a,lb,la,alt)=>`<svg viewBox="0 0 320 150" role="img" aria-label="${alt}">
+   <g font-size="13" font-weight="800" fill="#5f6b80" ${T}><text x="245" y="16">قبل</text><text x="75" y="16">بعد</text></g>
+   <rect x="180" y="22" width="130" height="108" rx="10" fill="#f8f9fb" stroke="#e0e5ee"/><rect x="10" y="22" width="130" height="108" rx="10" fill="#f8f9fb" stroke="#e0e5ee"/>
+   <g transform="translate(180,24)">${D[b]}</g><g transform="translate(10,24)">${D[a]}</g>
+   <path d="M170 76 H152" stroke="#495057" stroke-width="3"/><path d="M152 70 L144 76 L152 82Z" fill="#495057"/>
+   <g font-size="12" font-weight="700" fill="#1f2a3d" ${T}><text x="245" y="146">${lb}</text><text x="75" y="146">${la}</text></g></svg>`;
+  const C=[
+   ['chem','تحميص الخبز حتى يحترق','bread','burnt','خبز','خبز محروق','تكوّنت مادة سوداء جديدة (فحم) لها طعم ورائحة مختلفان، ولا تعود خبزًا.'],
+   ['chem','خلّ + صودا الخَبز','vinegar','fizz','خلّ + صودا الخبز','فقاعات وفوران','تكوّن غاز جديد هو ثاني أكسيد الكربون.'],
+   ['chem','إشعال شمعة','candle','flame','شمعة','لهب: حرارة وضوء','الشمع يحترق فتنطلق حرارة وضوء وتتكوّن غازات جديدة، فتقصر الشمعة.'],
+   ['chem','النفخ في ماء الجير','lime','milky','ماء جير صافٍ','سائل حليبي وراسب','تكوّنت مادة صلبة بيضاء جديدة (راسب).'],
+   ['phys','انصهار مكعب جليد','ice','puddle','مكعب جليد','ماء سائل','الماء نفسه في حالة أخرى، ونستطيع تجميده من جديد. لا مادة جديدة.'],
+   ['phys','إذابة السكر في الماء','sugar','sweet','ماء + سكر','محلول سكر','السكر ما زال سكرًا (الطعم حلو)، ونسترجعه بتبخير الماء. لا مادة جديدة.'],
+   ['phys','قصّ الورق','paper','pieces','ورقة كاملة','قطع ورق','تغيّر الشكل والحجم فقط، وما زالت كل قطعة ورقًا. لا مادة جديدة.']
+  ];
+  const card=([k,t,b,a,lb,la,why])=>`<figure class="ba-card ${k}"><div class="ba-head"><span class="ba-tag">${k==='chem'?'🧪 تغيّر كيميائي':'💧 تغيّر فيزيائي'}</span><b>${t}</b></div>${svg(b,a,lb,la,`${t}: قبل ${lb}، بعد ${la}`)}<figcaption class="ba-why">${k==='chem'?'✨':'↩️'} ${why}</figcaption></figure>`;
+  return `<h3>🖼️ قبل وبعد: كيميائي أم فيزيائي؟</h3>
+  <p>انظر إلى كل بطاقة: ماذا كان <b>قبل</b> التغيّر، وماذا صار <b>بعده</b>؟ وهل تكوّنت <b>مادة جديدة</b>؟</p>
+  <h4 class="ba-group chem">🧪 تغيّرات كيميائية: تتكوّن مادة جديدة</h4><div class="ba-grid">${C.filter(c=>c[0]==='chem').map(card).join('')}</div>
+  <h4 class="ba-group phys">💧 تغيّرات فيزيائية: لا تتكوّن مادة جديدة</h4><div class="ba-grid">${C.filter(c=>c[0]==='phys').map(card).join('')}</div>`;
+}
+/* تمرين تصنيف «كيميائي أم فيزيائي؟» — يستعمل مكوّن التمرين نفسه (tblxCheck) */
+function CLASSIFY(id, items){
+  const O=['🧪 كيميائي','💧 فيزيائي'];
+  return `<div class="box tblx" data-id="${id}"><h3>✏️ تمرين: صنّف — كيميائي أم فيزيائي؟</h3>
+  <p class="small">اختر نوع التغيّر لكل مثال، ثم اضغط «تحقّق». تذكّر السؤال المهم: هل تكوّنت مادة جديدة؟</p>
+  <ol class="tx-list">${items.map(([t,a])=>`<li class="tx-row"><div class="tx-ex">${t}</div><div class="tx-grid"><span class="tx-lab">نوع التغيّر</span><span class="tx-cell"><select class="tx" data-a="${O[a]}" aria-label="نوع التغيّر — ${t}" onchange="tblxChange(this)"><option value="">اختر…</option>${O.map(o=>`<option>${o}</option>`).join('')}</select></span></div></li>`).join('')}</ol>
+  <div class="row no-print"><button class="btn" onclick="tblxCheck(this)">✔️ تحقّق</button><button class="btn ghost" onclick="tblxShow(this)">👁️ أظهر الحل</button><button class="btn ghost" onclick="tblxReset(this)">↺ من جديد</button></div>
+  <p class="tblx-msg" aria-live="polite"></p></div>`;
+}
 const POOL = (function(){
   const L={}; LEGACY_UNITS.forEach(u=>u.lessons.forEach(l=>L[l.id]=l));
   L.u4l2.body += `<h3>حفظ الطاقة في نظام مغلق</h3>
@@ -1382,6 +1471,8 @@ const POOL = (function(){
   <p>في الواقع لا يوجد عزل كامل، فيتسرّب جزء من الطاقة إلى البيئة غالبًا على شكل حرارة؛ لذلك نقول إن الطاقة «ضاعت» من وجهة نظرنا، لكنها لم تَفنَ، بل انتقلت إلى البيئة.</p>`;
   L.u4l2.spec='שימור אנרגיה במערכת סגורה; המרות אנרגיה';
   L.u2l1.spec='מצבי צבירה ומעברים ביניהם';
+  L.u2l2.mins = 16;
+  L.u2l2.body += BA_CARDS() + CLASSIFY('u2l2-classify',[['🔩 صدأ مسمار حديد',0],['🍫 تكسير لوح شوكولاتة',1],['🍳 قلي بيضة',0],['☀️ جفاف بركة ماء في الشمس',1],['🍌 تعفّن موزة',0],['🧂 ذوبان الملح في الماء',1],['🔥 احتراق عود ثقاب',0],['📄 طيّ ورقة',1]]);
   L.u2l2.spec='שינויים פיזיקליים וכימיים'; L.u2l3.spec='תערובות ותמיסות';
   L.u1l1.spec='התא כיחידת המבנה והתפקוד; רמות ארגון: תא–רקמה–איבר–מערכת–אורגניזם';
   L.u1l2.spec='מבנה התא ואברונים'; L.u1l3.spec='תא צמחי ותא בעל חיים';
